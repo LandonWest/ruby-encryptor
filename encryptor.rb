@@ -5,7 +5,7 @@ class Encryptor
      'G' => 'T','H' => 'U','I' => 'V','J' => 'W','K' => 'X','L' => 'Y',
      'M' => 'Z','N' => 'A','O' => 'B','P' => 'C','Q' => 'D','R' => 'E',
      'S' => 'F','T' => 'G','U' => 'H','V' => 'I','W' => 'J','X' => 'K',
-     'Y' => 'L','Z' => 'M'}
+     'Y' => 'L','Z' => 'M' " " => " "}
   end
 
   def encrypt(letter)
@@ -23,12 +23,12 @@ class Encryptor
   end
 
   def encrypt_file(filename)
-    input = File.open("secret_message.txt", "r")
+    input = File.open(filename, "r")
     contents = input.read
     encrypted_contents = encrypt_word(contents)
     input.close
 
-    output = File.open("secret_message.txt" + ".encrypted", "w")
+    output = File.open(filename + ".encrypted", "w")
     output.write(encrypted_contents)
     output.close
   end
